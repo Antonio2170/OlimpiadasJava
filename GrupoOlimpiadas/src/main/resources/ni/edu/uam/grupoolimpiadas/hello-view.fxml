@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" spacing="15.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ni.edu.uam.grupoolimpiadas.HelloController" prefWidth="550.0" prefHeight="500.0">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Clasificación de Olimpiadas">
+        <font>
+            <Font name="System Bold" size="20.0"/>
+        </font>
+    </Label>
+
+    <!-- Sección de Registro -->
+    <HBox spacing="10" alignment="CENTER">
+        <TextField fx:id="txtNombre" promptText="Nombre del participante" prefWidth="200.0"/>
+        <TextField fx:id="txtCalificacion" promptText="Calificación" prefWidth="100.0"/>
+        <Button text="Registrar" onAction="#onRegistrarClick" style="-fx-background-color: #0078D7; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Label fx:id="lblMensaje" textFill="red" />
+
+    <!-- NUEVO: Sección de Filtros -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Filtrar vista:" style="-fx-font-weight: bold;"/>
+        <CheckBox fx:id="chkGrupo1" text="Ver Grupo 1" selected="true" onAction="#filtrarTabla"/>
+        <CheckBox fx:id="chkGrupo2" text="Ver Grupo 2" selected="true" onAction="#filtrarTabla"/>
+    </HBox>
+
+    <!-- Tabla de Resultados -->
+    <TableView fx:id="tablaParticipantes" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colNombre" text="Nombre" prefWidth="200.0"/>
+            <TableColumn fx:id="colCalificacion" text="Calificación" prefWidth="100.0"/>
+            <TableColumn fx:id="colGrupo" text="Grupo de Clasificación" prefWidth="175.0"/>
+        </columns>
+    </TableView>
+
+    <!-- Sección de Acciones -->
+    <HBox alignment="CENTER_RIGHT">
+        <Button text="Eliminar Seleccionado" onAction="#onEliminarClick" style="-fx-background-color: #DC3545; -fx-text-fill: white;"/>
+    </HBox>
+</VBox>
